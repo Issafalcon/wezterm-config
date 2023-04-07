@@ -15,6 +15,7 @@ end
 -- Custom Config
 config.default_prog = { "pwsh" }
 config.use_fancy_tab_bar = false
+config.tab_max_width = 24
 config.enable_csi_u_key_encoding = true
 config.selection_word_boundary = " \t\n{}[]()\"'`,;:│=&!%"
 config.enable_scroll_bar = true

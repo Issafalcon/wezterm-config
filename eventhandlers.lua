@@ -8,7 +8,8 @@ local config = {}
 
 ---@diagnostic disable-next-line: unused-local
 local function create_tab_title(tab, tabs, panes, config, hover, max_width)
-	local user_title = tab.active_pane.user_vars.panetitle
+	local user_title = tab.active_pane.tab_title
+	print(user_title)
 	if user_title ~= nil and #user_title > 0 then
 		return tab.tab_index + 1 .. ":" .. user_title
 	end
@@ -71,7 +72,7 @@ wezterm.on("trigger-nvim-with-scrollback", function(window, pane)
 	if f == nil then
 		return
 	end
-	print(os.getenv("WSL_DISTRO_NAME"))
+
 	f:write(scrollback)
 	f:flush()
 	f:close()

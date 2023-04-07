@@ -1,9 +1,11 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
+local projects = require("menus.projects")
 
 local keybindings = {}
 
 function keybindings.apply_to_config(config)
+	local projects_input_selector = projects.get_project_input_selector()
 	config.disable_default_key_bindings = true
 	config.leader = { key = "b", mods = "CTRL" }
 
@@ -28,7 +30,7 @@ function keybindings.apply_to_config(config)
 		{
 			key = "e",
 			mods = "LEADER",
-			action = act.InputSelector(require("menus.projects")),
+			action = act.InputSelector(projects_input_selector),
 		},
 		{ key = "j", mods = "ALT|CTRL", action = act({ PasteFrom = "PrimarySelection" }) },
 		{ key = "1", mods = "LEADER", action = act({ ActivateTab = 0 }) },
@@ -62,7 +64,7 @@ function keybindings.apply_to_config(config)
 		{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
 		{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
 		{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
-		{ key = "a", mods = "ALT", action = wezterm.action.ShowLauncher },
+		{ key = "w", mods = "LEADER", action = wezterm.action.ShowLauncher },
 		{ key = "g", mods = "LEADER", action = wezterm.action.ShowTabNavigator },
 		{
 			key = "r",
