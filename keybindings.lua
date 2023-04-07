@@ -20,6 +20,16 @@ function keybindings.apply_to_config(config)
 			mods = "LEADER",
 			action = act.Multiple({ act.CopyMode("ClearSelectionMode"), act.ActivateCopyMode, act.ClearSelection }),
 		},
+		{
+			key = "p",
+			mods = "LEADER",
+			action = act.ActivateCommandPalette,
+		},
+		{
+			key = "e",
+			mods = "LEADER",
+			action = act.InputSelector(require("menus.projects")),
+		},
 		{ key = "j", mods = "ALT|CTRL", action = act({ PasteFrom = "PrimarySelection" }) },
 		{ key = "1", mods = "LEADER", action = act({ ActivateTab = 0 }) },
 		{ key = "2", mods = "LEADER", action = act({ ActivateTab = 1 }) },
