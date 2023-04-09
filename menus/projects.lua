@@ -35,7 +35,7 @@ local function get_project_choices()
 	return choices
 end
 
-function projects.get_project_input_selector()
+function projects.get_input_selector()
 	return {
 		action = wezterm.action_callback(function(window, pane, id, label)
 			local project_config = dofile(id)

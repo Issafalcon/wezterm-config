@@ -5,7 +5,7 @@ local projects = require("menus.projects")
 local keybindings = {}
 
 function keybindings.apply_to_config(config)
-	local projects_input_selector = projects.get_project_input_selector()
+	local projects_input_selector = projects.get_input_selector()
 	config.disable_default_key_bindings = true
 	config.leader = { key = "b", mods = "CTRL" }
 
@@ -62,7 +62,7 @@ function keybindings.apply_to_config(config)
 		{ key = "-", mods = "CTRL", action = "DecreaseFontSize" },
 		{ key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
 		{ key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
-		{ key = "z", mods = "ALT", action = "ReloadConfiguration" },
+		{ key = "z", mods = "LEADER", action = "ReloadConfiguration" },
 		{ key = "e", mods = "ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
 		{ key = "w", mods = "LEADER", action = wezterm.action.ShowLauncher },
 		{ key = "g", mods = "LEADER", action = wezterm.action.ShowTabNavigator },

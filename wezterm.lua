@@ -19,6 +19,7 @@ config.tab_max_width = 24
 config.enable_csi_u_key_encoding = true
 config.selection_word_boundary = " \t\n{}[]()\"'`,;:│=&!%"
 config.enable_scroll_bar = true
+config.automatically_reload_config = false
 
 colors.apply_to_config(config)
 fonts.apply_to_config(config)

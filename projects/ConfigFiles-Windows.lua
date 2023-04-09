@@ -37,6 +37,17 @@ function M.startup(wezterm)
 	wez_nvim_pane:send_text("cd wezterm-config\r")
 	wez_nvim_pane:send_text("nvim\r")
 
+	local wez_pwsh_admin_pane = wez_nvim_pane:split({
+		args = {
+			"pwsh",
+			"-Command",
+			"& {Start-Process pwsh -Verb RunAs}",
+		},
+		direction = "Bottom",
+		size = 0.15,
+	})
+
+	wez_pwsh_admin_pane:send_text("Start-Process powershell -Verb runAs")
 	mux.set_active_workspace("Config Files")
 end
 
