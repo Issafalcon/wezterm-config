@@ -47,7 +47,7 @@ function M.startup(wezterm, workspace_name)
 	})
 
 	wez_pwsh_admin_pane:send_text("Start-Process powershell -Verb runAs")
-	mux.set_active_workspace("Config Files")
+	mux.set_active_workspace(workspace_name)
 end
 
 return M

@@ -22,7 +22,7 @@ function launch.apply_to_config(config)
 				args = {
 					"cmd.exe",
 					"/k",
-					"C:/Program Files (x86)/" .. vsvers .. "/BuildTools/VC/Auxiliary/Build/vcvars64.bat",
+					'"C:/Program Files (x86)/' .. vsvers .. '/BuildTools/VC/Auxiliary/Build/vcvars64.bat"',
 				},
 			})
 		end
