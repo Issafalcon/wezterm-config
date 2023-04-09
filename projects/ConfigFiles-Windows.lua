@@ -1,12 +1,11 @@
 local M = {}
 
-function M.startup(wezterm)
+function M.startup(wezterm, workspace_name)
 	local mux = wezterm.mux
 	local project_dir = wezterm.home_dir .. "/repos"
-	print(project_dir)
 
 	local nvim_config_tab, nvim_pane, proj_window = mux.spawn_window({
-		workspace = "Config Files",
+		workspace = workspace_name,
 		cwd = project_dir,
 		args = {
 			"pwsh",

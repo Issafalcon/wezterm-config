@@ -9,11 +9,10 @@ local config = {}
 ---@diagnostic disable-next-line: unused-local
 local function create_tab_title(tab, tabs, panes, config, hover, max_width)
 	local user_title = tab.active_pane.tab_title
-	print(user_title)
+
 	if user_title ~= nil and #user_title > 0 then
 		return tab.tab_index + 1 .. ":" .. user_title
 	end
-	-- pane:get_foreground_process_info().status
 
 	local title = wezterm.truncate_right(path_utils.basename(tab.active_pane.foreground_process_name), max_width)
 	if title == "" then

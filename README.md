@@ -18,3 +18,6 @@ Using the `InputSelector` command, and binding the custom projects `get_input_se
 - The `$HOME/.config/wezterm-projects`
 
 Each project file has a `startup()` function which is called when the corresponding project is selected from the `InputSelector` list. This will, in turn, run wezterm commands to create windows, panes and tabs with associated commands, in order to set up each workspace.
+
+Once a project workspace has been created in WezTerm, selecting the same project from the list will not re-run the `startup()` function, but will instead just switch the active workspace to the selection.
+- This prevents accidental creation of the same project workspace
