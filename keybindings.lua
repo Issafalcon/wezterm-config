@@ -7,7 +7,7 @@ local keybindings = {}
 function keybindings.apply_to_config(config)
 	local projects_input_selector = projects.get_project_input_selector()
 	config.disable_default_key_bindings = true
-	config.leader = { key = "b", mods = "CTRL" }
+	config.leader = { key = ";", mods = "CTRL" }
 
 	---------------------------------------------------------------
 	--- keybinds
