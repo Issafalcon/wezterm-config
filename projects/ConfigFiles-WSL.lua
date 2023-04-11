@@ -11,7 +11,7 @@ function M.startup(wezterm, workspace_name)
 	})
 
 	wsl_tab:set_title("WSL - Tmux")
-	wsl_pane:send_text("tmux_start_wiki.sh\r")
+	wsl_pane:send_text("tmux_start_dotfiles.sh\r")
 
 	mux.set_active_workspace(workspace_name)
 end
