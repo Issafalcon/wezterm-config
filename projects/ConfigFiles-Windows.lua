@@ -41,7 +41,7 @@ function M.startup(wezterm, workspace_name)
 			"pwsh",
 		},
 		direction = "Bottom",
-		size = 0.15,
+		size = 0.05,
 	})
 
 	mux.set_active_workspace(workspace_name)

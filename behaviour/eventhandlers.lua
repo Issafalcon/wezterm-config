@@ -8,9 +8,9 @@ local config = {}
 
 ---@diagnostic disable-next-line: unused-local
 local function create_tab_title(tab, tabs, panes, config, hover, max_width)
-	local user_title = tab.active_pane.tab_title
+	local user_title = tab.tab_title
 
-	if user_title ~= nil and #user_title > 0 then
+	if user_title and #user_title > 0 then
 		return tab.tab_index + 1 .. ":" .. user_title
 	end
 
