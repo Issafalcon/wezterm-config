@@ -18,7 +18,7 @@ function M.startup(wezterm, workspace_name)
   local second_tab, second_pane, _ = proj_window:spawn_tab({})
 
   second_tab:set_title("neovim-config")
-  second_pane:send_text("cd dotFiles/neovim/.config/nvim\r")
+  second_pane:send_text("cd dotFiles/nvim/.config/nvim\r")
   second_pane:send_text("nvim +PluginDev\r")
 
   -- WezTerm config tab

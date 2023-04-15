@@ -21,7 +21,7 @@ function M.startup(wezterm, workspace_name)
   })
 
   second_tab:set_title("learning-dotnet")
-  second_pane:send_text("cd repos/learning-dotnet\r")
+  second_pane:send_text("cd learning-dotnet\r")
 
   second_pane:split({
     direction = "Bottom",
