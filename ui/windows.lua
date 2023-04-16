@@ -3,7 +3,7 @@ local windows = {}
 
 function windows.apply_to_config(config)
   local image_dir = wezterm.home_dir .. "/wezterm-images"
-  config.window_background_image = image_dir .. "/background.png"
+  config.window_background_image = image_dir .. "/background.jpg"
   config.window_background_image_hsb = {
     -- Darken the background image by reducing it to 1/3rd
     brightness = 0.02,
