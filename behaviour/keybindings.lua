@@ -18,6 +18,11 @@ function keybindings.apply_to_config(config)
     { key = "&", mods = "LEADER|SHIFT", action = wezterm.action({ CloseCurrentTab = { confirm = true } }) },
     { key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
     {
+      key = "z",
+      mods = "LEADER",
+      action = wezterm.action.TogglePaneZoomState,
+    },
+    {
       key = "[",
       mods = "LEADER",
       action = act.Multiple({ act.CopyMode("ClearSelectionMode"), act.ActivateCopyMode, act.ClearSelection }),
@@ -62,7 +67,7 @@ function keybindings.apply_to_config(config)
     { key = "-", mods = "CTRL", action = "DecreaseFontSize" },
     { key = "PageUp", mods = "ALT", action = act({ ScrollByPage = -1 }) },
     { key = "PageDown", mods = "ALT", action = act({ ScrollByPage = 1 }) },
-    { key = "z", mods = "LEADER", action = "ReloadConfiguration" },
+    { key = "Z", mods = "LEADER", action = "ReloadConfiguration" },
     { key = "e", mods = "LEADER|ALT", action = act({ EmitEvent = "trigger-nvim-with-scrollback" }) },
     { key = "w", mods = "LEADER", action = wezterm.action.ShowLauncher },
     { key = "g", mods = "LEADER", action = wezterm.action.ShowTabNavigator },
