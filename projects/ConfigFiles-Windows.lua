@@ -30,7 +30,7 @@ function M.startup(wezterm, workspace_name)
 
 	wezterm_config_tab:set_title("wezterm-config")
 	nvim_pane:send_text("cd nvim-config\r")
-	nvim_pane:send_text("nvim +PluginDev\r")
+	nvim_pane:send_text("nvim\r")
 	win_nvim_pane:send_text("cd windows-config\r")
 	win_nvim_pane:send_text("nvim\r")
 	wez_nvim_pane:send_text("cd wezterm-config\r")
