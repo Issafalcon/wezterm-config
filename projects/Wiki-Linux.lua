@@ -40,7 +40,7 @@ function M.startup(wezterm, workspace_name)
   second_pane:send_text("cd wiki\r")
 
   -- Wiki repo tab (Neovim)
-  local third_tab, third_pane, _ = proj_window.spawn_window({
+  local third_tab, third_pane, _ = proj_window:spawn_tab({
     workspace = workspace_name,
     cwd = project_dir .. "/wiki",
   })
