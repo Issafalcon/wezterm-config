@@ -5,27 +5,27 @@ function M.startup(wezterm, workspace_name)
   local project_dir = wezterm.home_dir .. "/repos"
 
   -- Check if ~/repos/wiki-md exists, and if not, clone it
-  local wiki_md_dir = project_dir .. "/wiki-md"
+  local obsidian_vault_dir = project_dir .. "/obsidian-notes"
 
-  local wiki_md_exists = wezterm.run_child_process({
+  local obsidian_vault_exists = wezterm.run_child_process({
     "test",
     "-d",
-    wiki_md_dir,
+    obsidian_vault_dir,
   })
 
-  if wiki_md_exists ~= 0 then
+  if obsidian_vault_exists ~= 0 then
     wezterm.run_child_process({
       "git",
       "clone",
       "https://github.com/Issafalcon/obsidian-notes.git",
-      wiki_md_dir,
+      obsidian_vault_dir,
     })
   end
 
   -- Obsidian Wiki repo tab (Neovim)
   local first_tab, first_pane, proj_window = mux.spawn_window({
     workspace = workspace_name,
-    cwd = wiki_md_dir,
+    cwd = obsidian_vault_dir,
   })
 
   first_tab:set_title("Obsidian")
