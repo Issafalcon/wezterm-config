@@ -17,7 +17,7 @@ function M.startup(wezterm, workspace_name)
     wezterm.run_child_process({
       "git",
       "clone",
-      "https://github.com/Issafalcon/wiki-md.git",
+      "https://github.com/Issafalcon/obsidian-notes.git",
       wiki_md_dir,
     })
   end
