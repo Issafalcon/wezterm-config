@@ -85,6 +85,19 @@ function keybindings.apply_to_config(config)
     },
     { key = "s", mods = "LEADER", action = act.PaneSelect({ alphabet = "1234567890" }) },
     { key = "L", mods = "CTRL", action = wezterm.action.ShowDebugOverlay },
+    {
+      key = "R",
+      mods = "LEADER",
+      action = act.PromptInputLine({
+        description = "Enter new name for tab",
+        action = wezterm.action_callback(function(window, _, line)
+          -- line will be `nil` if they hit escape without entering anything
+          -- An empty string if they just hit enter
+          -- Or the actual line of text they wrote
+          if line then window:active_tab():set_title(line) end
+        end),
+      }),
+    },
   }
 
   config.key_tables = {
