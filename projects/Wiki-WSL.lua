@@ -1,19 +1,33 @@
 local M = {}
 
 function M.startup(wezterm, workspace_name)
-	local mux = wezterm.mux
-	local project_dir = wezterm.home_dir .. "/repos"
+  local mux = wezterm.mux
 
-	local wsl_tab, wsl_pane, proj_window = mux.spawn_window({
-		workspace = workspace_name,
-		cwd = project_dir,
-		args = { "wsl" },
-	})
+  local first_tab, first_pane, proj_window = mux.spawn_window({
+    workspace = workspace_name,
+    args = { "wsl" },
+  })
 
-	wsl_tab:set_title("WSL - Tmux")
-	wsl_pane:send_text("tmux_start_wiki.sh\r")
+  first_tab:set_title("Obsidian")
+  first_pane:send_text('cd "$PROJECTS/obsidian-notes"\r')
 
-	mux.set_active_workspace(workspace_name)
+  -- Terminal tab
+  local second_tab, second_pane, _ = proj_window:spawn_tab({
+    args = { "wsl" },
+  })
+
+  second_tab:set_title("Terminals")
+  second_pane:send_text('cd "$PROJECTS/obsidian-notes"\r')
+
+  local lower_split = second_pane:split({
+    direction = "Bottom",
+    size = 0.05,
+    args = { "wsl" },
+  })
+
+  lower_split:send_text("obsidian\r")
+
+  mux.set_active_workspace(workspace_name)
 end
 
 return M
