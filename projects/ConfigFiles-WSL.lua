@@ -9,7 +9,7 @@ function M.startup(wezterm, workspace_name)
   })
 
   first_tab:set_title("dotfiles")
-  first_pane:send_text('cd "~/dotfiles"\r')
+  first_pane:send_text('cd "$DOTFILES"\r')
 
   local second_tab, second_pane, _ = proj_window:spawn_tab({
     args = { "wsl" },
