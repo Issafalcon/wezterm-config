@@ -14,7 +14,8 @@ function M.startup(wezterm, workspace_name, run_project)
   first_pane:send_text("fi\r")
 
   first_pane:send_text('cd "$PROJECTS/scrimmage-api"\r')
-  first_pane:send_text("cls")
+  first_pane:send_text("clear\r")
+  first_pane:send_text("nvim\r")
 
   local second_tab, second_pane, _ = proj_window:spawn_tab({
     args = { "wsl" },
@@ -25,7 +26,8 @@ function M.startup(wezterm, workspace_name, run_project)
   second_pane:send_text('git clone https://github.com/Issafalcon/scrimmage-web.git "${PROJECTS}"/scrimmage-web\r')
   second_pane:send_text("fi\r")
   second_pane:send_text('cd "$PROJECTS/scrimmage-web"\r')
-  second_pane:send_text("cls")
+  second_pane:send_text("clear\r")
+  second_pane:send_text("nvim\r")
 
   local term_tab, term_pane, _ = proj_window:spawn_tab({
     args = { "wsl" },
@@ -34,7 +36,7 @@ function M.startup(wezterm, workspace_name, run_project)
   term_tab:set_title("Terminals")
   term_pane:send_text('cd "$PROJECTS/scrimmage-api"\r')
 
-  local lower_split = second_pane:split({
+  local lower_split = term_pane:split({
     direction = "Bottom",
     size = 0.05,
     args = { "wsl" },
