@@ -26,15 +26,6 @@ function M.startup(wezterm, workspace_name)
   third_pane:send_text('cd "$DOTFILES/wezterm/.config/wezterm"\r')
 
   mux.set_active_workspace(workspace_name)
-
-  local forth_tab, forth_pane, _ = proj_window:spawn_tab({
-    args = { "wsl" },
-  })
-
-  forth_tab:set_title("Test")
-  forth_pane:send_text('if [ ! -d "${PROJECTS}"/learning-dotnet ]; then\r')
-  forth_pane:send_text('git clone https://github.com/Issafalcon/learning-dotnet.git "${PROJECTS}"/learning-dotnet\r')
-  forth_pane:send_text("fi\r")
 end
 
 return M
