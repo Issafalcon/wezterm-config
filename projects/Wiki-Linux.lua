@@ -23,21 +23,12 @@ function M.startup(wezterm, workspace_name)
   end
 
   -- Obsidian Wiki repo tab (Neovim)
-  local first_tab, first_pane, proj_window = mux.spawn_window({
+  local first_tab, _, proj_window = mux.spawn_window({
     workspace = workspace_name,
     cwd = obsidian_vault_dir,
   })
 
   first_tab:set_title("Obsidian")
-
-  -- Wiki repo tab (Neovim)
-  local second_tab, second_pane, _ = proj_window:spawn_tab({
-    workspace = workspace_name,
-    cwd = project_dir .. "/wiki",
-  })
-
-  second_tab:set_title("Wiki")
-  second_pane:send_text("nvim\r")
 
   -- Terminal tab
   local third_tab, third_pane, _ = proj_window:spawn_tab({

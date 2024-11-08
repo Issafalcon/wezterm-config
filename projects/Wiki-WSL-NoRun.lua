@@ -25,13 +25,11 @@ function M.startup(wezterm, workspace_name)
   second_tab:set_title("Terminals")
   second_pane:send_text('cd "$PROJECTS/obsidian-notes"\r')
 
-  local lower_split = second_pane:split({
+  second_pane:split({
     direction = "Bottom",
     size = 0.05,
     args = { "wsl" },
   })
-
-  lower_split:send_text("obsidian\r")
 
   mux.set_active_workspace(workspace_name)
 end
