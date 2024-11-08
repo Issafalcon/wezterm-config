@@ -15,7 +15,6 @@ function M.startup(wezterm, workspace_name)
 
   first_pane:send_text('cd "$PROJECTS/obsidian-notes"\r')
   first_pane:send_text("clear\r")
-  first_pane:send_text("nvim\r")
 
   -- Terminal tab
   local second_tab, second_pane, _ = proj_window:spawn_tab({
